@@ -1,0 +1,74 @@
+//STROBE (8,6) to STROBE (8,6) @ SHAKE
+6,1,	17,1,		17,1,		17,2,		17,2,		30,0,		30,1,		0,0,		0,0,	// Mode 1	// Prime A //BLUE and GHSTBLUE
+3,1,	1,0,		4,0,		17,0,		0,0,		0,0,		0,0,		0,0,		0,0,	// Mode 1	// Prime B //RED YELLOW and BLUE
+
+//STROBE (8,6) to STROBE (8,6) @ SHAKE (High Sensitivity) 
+6,1,	17,1,		17,1,		17,2,		17,2,		30,0,		30,1,		0,0,		0,0,	// Mode 2	// Prime A //BLUE and GHSTBLUE
+3,1,	1,0,		4,0,		17,0,		0,0,		0,0,		0,0,		0,0,		0,0,	// Mode 2	// Prime B //RED YELLOW and BLUE
+
+//STROBE (8,6) to STROBE (8,6) @ SHAKE with 
+8,1,	4,3,		4,2,		4,1,		4,0,		4,0,		4,0,		4,1,		4,2,	// Mode 3	// Prime A //YELLOW HILL
+8,1,	30,3,		30,2,		30,1,		30,0,		30,0,		30,0,		30,1,		30,2,	// Mode 3	// Prime B //GHSTBLUE HILL
+
+//STROBE (8,6) to STROBE (8,6) @ SHAKE (High Sensitivity)
+8,1,	4,3,		4,2,		4,1,		4,0,		4,0,		4,0,		4,1,		4,2,	// Mode 4	// Prime A //YELLOW HILL
+8,1,	30,3,		30,2,		30,1,		30,0,		30,0,		30,0,		30,1,		30,2,	// Mode 4	// Prime B //GHSTBLUE HILL
+
+//STROBE (8,6) to TRACE (30,0) @ SHAKE
+8,1,	4,3,		4,2,		4,1,		4,0,		4,0,		4,0,		4,1,		4,2,	// Mode 5	// Prime A //YELLOW HILL
+8,1,	30,3,		30,2,		30,1,		30,0,		30,0,		30,0,		30,1,		30,2,	// Mode 5	// Prime B //GHSTBLUE HILL
+
+//STROBE (8,6) to STROBE (8,6) @ SHAKE 
+4,1,	17,0,		17,1,		32,0,		32,0,		0,0,		0,0,		0,0,		0,0,	// Mode 6	// Prime A //BLUE and GHSTRED
+3,1,	1,0,		4,0,		17,0,		0,0,		0,0,		0,0,		0,0,		0,0,	// Mode 6	// Prime B //RED YELLOW and BLUE
+
+//STROBE (6,2) to TRACE (30,0) @ SHAKE
+3,1,	1,0,		4,0,		17,0,		0,0,		0,0,		0,0,		0,0,		0,0,	// Mode 7	// Prime A //RED YELLOW and BLUE
+8,1,	32,0,		17,0,		32,0,		30,0,		30,0,		30,0,		30,0,		30,0,// Mode 7	// Prime B //GHSTBLUE with BLUE and GHSTRED
+
+Pairings
+1. <# of colors>,1	
+2. Code for color 1, Shade(0-3)
+3. Code for color 2, Shade(0-3)
+4. Code for color 3, Shade(0-3)
+5. Code for color 4, Shade(0-3)
+6. Code for color 5, Shade(0-3)
+7. Code for color 6, Shade(0-3)
+8. Code for color 7, Shade(0-3)
+9. Code for color 8, Shade(0-3)
+
+
+//#### ####
+//#### ####
+//
+//ORANGE=CC3
+//YELLOW=CC4
+//
+//BLUE=CC17
+//GHSTBLUE=CC30
+//
+//RED=CC1
+//GHSTRED=CC32
+
+
+//####	Mode 1	####
+osm_MASTER_BUILDER (      2,       0,        100,              1,       8,          6,        0,    0,    1,         1,       8,          6,        0,    0,    1     ) ;
+
+//####	Mode 2	####
+osm_MASTER_BUILDER (      2,       0,        1000,            1,       8,           6,       0,    0,    0,         1,       8,          6,        0,    0,    0     ) ;
+
+//####	Mode 3	####
+osm_MASTER_BUILDER (      2,       0,        100,              1,       8,           6,       0,    0,    0,         1,       8,          6,        0,    0,    0     ) ;
+
+//####	Mode 4	####
+osm_MASTER_BUILDER (      2,       0,        1000,            1,       8,           6,       0,    0,    0,         1,       8,          6,        0,    0,    0     ) ;
+
+//####	Mode 5	####
+osm_MASTER_BUILDER (      2,       0,        100,              1,       8,         6,         0,    0,    1,         2,        30,        0,        0,    0,    1     ) ;
+
+//####	Mode 6	####
+osm_MASTER_BUILDER (      2,       0,        100,              1,       8,         6,        0,     0,    1,        1,       8,           6,        0,    0,    1     ) ;
+
+//####	Mode 7	####
+osm_MASTER_BUILDER (      2,       0,        100,              1,       6,         2,         0,    0,    0,         2,        30,        0,        0,    0,    1     ) ;
+
