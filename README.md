@@ -31,7 +31,7 @@ I picked the following colors: Yellow, Blue, GhostBlue, Red, GhostRed. This is m
 - //STROBE (6,2) to TRACE (3,30) @ SHAKE 
 - // Mode 7	// Prime A //RED YELLOW and BLUE 
 - // Mode 7	// Prime B //GHSTBLUE with BLUE and GHSTRED
-
+ 
 ------
 The first two bundles are limited to those I made, the default 8-12 modes are still on the chip and can be found in the other 3 modes:
  - 7,    1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 0,      // Bundle 1,2 Warcry
