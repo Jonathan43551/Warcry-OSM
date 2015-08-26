@@ -10,8 +10,8 @@ __      ____      ____      __     | |  | | (___ | \  / |       ___ ___   __| | 
 6a 75 73 74 20 6e 65 65 64 20 74 6f 20 70 75 74 20 69 74 20 69 6e 20 70 72 61 63 74 69 63 65 2e 0d 0a
 /*******************************************************************************
 * NEO for the Open Source Microlight
-* Version: 1.1.4b
-* Date: 08-15-2015
+* Version: 1.1.4 (Release)
+* Date: 08-17-2015
 * Company: Quantum Hex LLC
 * Author: Ramiro Montes De Oca
 * Product Page: http://www.osm.codes
@@ -35,14 +35,16 @@ __      ____      ____      __     | |  | | (___ | \  / |       ___ ___   __| | 
             KNOWN ISSUES: Color Pallete. It's being fixed on v1.2.2
 * 1.1.3b    5 AM Omar's Edition 
             - "I don't think my chips remember which bundle they are on?" Fixed	
-* 1.1.4b    This will try to fix a initiation timing that caused some chips not
+* 1.1.4     This will fix a initiation timing that caused some chips not
             to work properly. This was a 50%-50% chances of having a not working chip.
             This hardware/software glitch affected v1.1.2b an v1.1.3b
             Thanks Theo Dee for spot the bug. 
             The safety valve for this chip before going to deep sleep it's 18 seconds.
             You have 18 seconds to do master reset or bundle changes. Once you click
             before those 18 seconds you have all the time in the world to proceed with 
-            you changes.                  
+            you changes. 
+            - Disabled (Commented out) Primes 9,10,11,12 for space (Uncomment to use them)
+            - If you need extra space, try commenting out line 105 -> "#define VISUAL..." to "//#define VISUAL ..."             
 *******************************************************************************/
 
 // Author's Contributions:
@@ -66,13 +68,13 @@ __      ____      ____      __     | |  | | (___ | \  / |       ___ ___   __| | 
 THIS CODE IS DISTRIBUTED UNDER CREATIVE COMMONS SHARE ALIKE 4.0
 Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 You are free to:
-Share Ã¯Â¿Â½ copy and redistribute the material in any medium or format
-Adapt Ã¯Â¿Â½ remix, transform, and build upon the material
+Share � copy and redistribute the material in any medium or format
+Adapt � remix, transform, and build upon the material
 for any purpose, even commercially.
 The licensor cannot revoke these freedoms as long as you follow the license terms.
 Under the following terms:
-Attribution Ã¯Â¿Â½ You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-ShareAlike Ã¯Â¿Â½ If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+Attribution � You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+ShareAlike � If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 http://creativecommons.org/licenses/by-sa/4.0/legalcode
 Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 
@@ -113,7 +115,7 @@ Libraries:
 #include <Wire.h>        // I2C LIBRARY
 #include <EEPROM.h>      // EEPROM READ AND WRITE
 #include <avr/pgmspace.h>// MEMORY SAVING LIBRARY
-#include <OSM_NEOv1-1-4b.h>   // HIGHJACKED MMA7660 LIBRARY (FOR BETTER ORGANIZATION)
+#include <OSM_NEOv1-1-4.h>   // HIGHJACKED MMA7660 LIBRARY (FOR BETTER ORGANIZATION)
 #include <avr/wdt.h>
 
 
@@ -382,7 +384,7 @@ volatile byte BPM_Selector;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //// CURRENT VERSION  //// CURRENT VERSION  //// CURRENT VERSION  //// CURRENT VERSION  //// CURRENT VERSION ///
-volatile  byte CurrentVersion = 147;         // CHANGE THIS NUMBER IF YOU WANT TO SAVE A NEW FACTORY DEFAULT  BETWEEN 1 AND 254  <----
+volatile  byte CurrentVersion = 150;         // CHANGE THIS NUMBER IF YOU WANT TO SAVE A NEW FACTORY DEFAULT  BETWEEN 1 AND 254  <----
 //// CURRENT VERSION  //// CURRENT VERSION  //// CURRENT VERSION  //// CURRENT VERSION  //// CURRENT VERSION ///
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -450,8 +452,8 @@ const PROGMEM  uint8_t ModeSetFLASH [13][36]= // FACTORY DEFAULT
 ////////////////////////////////////////////////////////////////////////////////////////////////
 volatile byte UserCmodes[5][13] = // USE: UserCmodes[CurrentUserBundle][CurrentUserMode];
 {// byte UserCmodes
-	//5 stands for the number of modes, 13 for the number of values per mode
-	//The first number in each mode cooresponds to the number of values used in each mode
+  //5 stands for the number of modes, 13 for the number of values per mode
+  //The first number in each mode cooresponds to the number of values used in each mode
 	
    7,    1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 0,      // Bundle 1 Warcry
 
@@ -584,7 +586,7 @@ while (Mode == 0 )
 	Mode_00(); // modes.ino
 }// elihw 0
 //////    MODE  0      /////////////////////////////////////////////////////////////////////
-
+    
     
 //////    MODE1		//////////////////////////////////////////////////////////////////////////////////////////////////////
 	JUSTONCE = 1; GLOBALCHANGE = 1;
@@ -677,6 +679,7 @@ osm_MASTER_BUILDER (      2,       0,        10,               5,       5,      
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }// elihw mode
 //////    MODE     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 //////    MODE     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -830,8 +833,6 @@ osm_MASTER_BUILDER (      1,       2,        100,              1,       5,      
 
 
 }// diov Loop
-
-
 
 
 
