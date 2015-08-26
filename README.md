@@ -9,7 +9,7 @@ I picked the following colors: Yellow, Blue, GhostBlue, Red, GhostRed. This is m
 - // Mode 1	// Prime B //RED YELLOW and BLUE
 
 - //STROBE (8,6) to STROBE (8,4) @ SHAKE (Reduced Sensitivity) 
-- // Mode 2	// Prime A //BLUE and GHSTBLUE 
+- // Mode 2	// Prime A //BLUE and GHSTBLUE
 - // Mode 2	// Prime B //RED YELLOW and BLUE
  
 - //STROBE (8,6) to STROBE (8,6) @ SHAKE 
